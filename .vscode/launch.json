@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug Run",
+      "program": "${workspaceFolder:USkateWeb}/.build/debug/Run",
+      "args": [],
+      "cwd": "${workspaceFolder:USkateWeb}",
+      "preLaunchTask": "swift: Build Debug Run"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Release Run",
+      "program": "${workspaceFolder:USkateWeb}/.build/release/Run",
+      "args": ["serve"],
+      "cwd": "${workspaceFolder:USkateWeb}",
+      "preLaunchTask": "swift: Build Release Run"
+    }
+  ]
+}
