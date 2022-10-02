@@ -11,13 +11,13 @@ final class User: Model, Content {
     var firstname: String
 
     @Field(key: "lastname")
-    var lastame: String
+    var lastname: String
 
     init() { }
 
     init(id: UUID? = nil, firstname: String, lastname: String) {
         self.id = id
         self.firstname = firstname
-        self.lastame = lastame
+        self.lastname = lastname
     }
 }

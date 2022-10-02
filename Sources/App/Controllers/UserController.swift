@@ -1,7 +1,7 @@
 import Fluent
 import Vapor
 
-struct TodoController: RouteCollection {
+struct UserController: RouteCollection {
     func boot(routes: RoutesBuilder) throws {
         let users = routes.grouped("users")
         users.get(use: index)

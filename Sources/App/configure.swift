@@ -10,15 +10,12 @@ public func configure(_ app: Application) throws {
     // app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
 
     // Enable TLS.
-    try app.http.server.configuration.tlsConfiguration = .makeServerConfiguration(
-        certificateChain: [
-            .certificate(.init(
-                file: "cert.pem",
-                format: .pem
-            ))
-        ],
-        privateKey: .file("key.pem")
-    )
+    switch app.environment {
+        case .testing, .development:
+            break
+        default: 
+            try configureSecurity(app)
+    }
 
     app.databases.use(.postgres(
         hostname: Environment.get("DATABASE_HOST") ?? "localhost",
