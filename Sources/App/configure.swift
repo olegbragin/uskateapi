@@ -12,15 +12,15 @@ public func configure(_ app: Application) throws {
     app.http.server.configuration.hostname = Environment.get("HOST") ?? "dev.local"
 
     // Enable TLS.
-    // try app.http.server.configuration.tlsConfiguration = .makeServerConfiguration(
-    //     certificateChain: [
-    //         .certificate(.init(
-    //             file: "cert.pem",
-    //             format: .pem
-    //         ))
-    //     ],
-    //     privateKey: .file("key.pem")
-    // )
+    try app.http.server.configuration.tlsConfiguration = .makeServerConfiguration(
+        certificateChain: [
+            .certificate(.init(
+                file: "cert.pem",
+                format: .pem
+            ))
+        ],
+        privateKey: .file("key.pem")
+    )
 
     app.databases.use(.postgres(
         hostname: Environment.get("DATABASE_HOST") ?? "localhost",
