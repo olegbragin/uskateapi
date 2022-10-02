@@ -8,8 +8,6 @@ import NIOSSL
 public func configure(_ app: Application) throws {
     // uncomment to serve files from /Public folder
     // app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
-    
-    app.http.server.configuration.hostname = Environment.get("HOST") ?? "dev.local"
 
     // Enable TLS.
     try app.http.server.configuration.tlsConfiguration = .makeServerConfiguration(
