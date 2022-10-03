@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>People</title>
+</head>
+
+<body>
+  <h1>#count(users)</h1>
+  #for(user in users):
+    <div>#(user)</div>
+  #endfor
+</body>
+</html>
