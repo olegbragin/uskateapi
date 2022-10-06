@@ -1,2 +1,2 @@
-# uskateweb
-A simple system allowing to manage schedule of figure skating club
+# uskateapi
+A simple system prodiving api to manage the scedule for figure skating trainings.
