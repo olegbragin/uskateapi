@@ -1,4 +1,4 @@
-@testable import App
+@testable import USkateApi
 import XCTVapor
 
 final class AppTests: XCTestCase {
@@ -18,7 +18,7 @@ final class AppTests: XCTestCase {
         defer { app.shutdown() }
         try configure(app)
 
-        try app.test(.GET, "users", afterResponse: { res in
+        try app.test(.GET, "api/users", afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
         })
     }
@@ -28,7 +28,7 @@ final class AppTests: XCTestCase {
         defer { app.shutdown() }
         try configure(app)
 
-        try app.test(.POST, "users", beforeRequest: { req in
+        try app.test(.POST, "api/users", beforeRequest: { req in
             let newUser = User()
             newUser.firstname = "Kate"
             newUser.lastname = "Bragina"
@@ -47,7 +47,7 @@ final class AppTests: XCTestCase {
 
         var userID: UUID?
 
-        try app.test(.POST, "users", beforeRequest: { req in
+        try app.test(.POST, "api/users", beforeRequest: { req in
             let newUser = User()
             newUser.firstname = "Kate"
             newUser.lastname = "Bragina"
@@ -64,7 +64,7 @@ final class AppTests: XCTestCase {
             return
         }
 
-        try app.test(.DELETE, "users/\(userID)", afterResponse: { res in
+        try app.test(.DELETE, "api/users/\(userID)", afterResponse: { res in
             XCTAssertEqual(res.status, .noContent)
         })
     }
