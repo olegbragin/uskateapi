@@ -1,7 +1,7 @@
 import Fluent
 import Vapor
 
-struct ApiUserController: RouteCollection {
+struct UserController: RouteCollection {
     func boot(routes: RoutesBuilder) throws {
         let api = routes.grouped("api")
         api.get("users", use: index)

@@ -4,18 +4,20 @@
       "type": "lldb",
       "request": "launch",
       "name": "Debug Run",
-      "program": "${workspaceFolder:USkateWeb}/.build/debug/Run",
+      "program": "${workspaceFolder:USkateApi}/.build/debug/Run",
       "args": [],
-      "cwd": "${workspaceFolder:USkateWeb}",
+      "cwd": "${workspaceFolder:USkateApi}",
       "preLaunchTask": "swift: Build Debug Run"
     },
     {
       "type": "lldb",
       "request": "launch",
       "name": "Release Run",
-      "program": "${workspaceFolder:USkateWeb}/.build/release/Run",
-      "args": ["serve"],
-      "cwd": "${workspaceFolder:USkateWeb}",
+      "program": "${workspaceFolder:USkateApi}/.build/release/Run",
+      "args": [
+        "serve"
+      ],
+      "cwd": "${workspaceFolder:USkateApi}",
       "preLaunchTask": "swift: Build Release Run"
     }
   ]

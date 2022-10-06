@@ -1,6 +1,5 @@
 import Fluent
 import FluentPostgresDriver
-import Leaf
 import Vapor
 import NIOSSL
 
@@ -26,8 +25,6 @@ public func configure(_ app: Application) throws {
     ), as: .psql)
 
     app.migrations.add(CreateUser())
-
-    app.views.use(.leaf)
 
     // register routes
     try routes(app)

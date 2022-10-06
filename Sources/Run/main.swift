@@ -1,4 +1,4 @@
-import App
+import USkateApi
 import Vapor
 
 var env = try Environment.detect()

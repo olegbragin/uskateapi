@@ -3,7 +3,7 @@ import Vapor
 
 func routes(_ app: Application) throws {
     app.get { req async throws in
-        try await req.view.render("index", ["title": "Hello Vapor!"])
+        "Hello, world!"
     }
 
     app.get("hello") { req async -> String in
@@ -16,5 +16,4 @@ func routes(_ app: Application) throws {
     }
 
     try app.register(collection: UserController())
-    try app.register(collection: ApiUserController())
 }
