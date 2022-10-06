@@ -10,5 +10,11 @@ func routes(_ app: Application) throws {
         "Hello, world!"
     }
 
+    app.get("hello", ":name") { req -> String in
+        let name = req.parameters.get("name")!
+        return "Hello, \(name)!"
+    }
+
     try app.register(collection: UserController())
+    try app.register(collection: ApiUserController())
 }
