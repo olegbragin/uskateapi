@@ -32,6 +32,7 @@ final class AppTests: XCTestCase {
             let newUser = User()
             newUser.firstname = "Kate"
             newUser.lastname = "Bragina"
+            newUser.isActive = false
             try req.content.encode(newUser)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
@@ -45,12 +46,13 @@ final class AppTests: XCTestCase {
         defer { app.shutdown() }
         try configure(app)
 
-        var userID: UUID?
+        var userID: Int?
 
         try app.test(.POST, "api/users", beforeRequest: { req in
             let newUser = User()
             newUser.firstname = "Kate"
             newUser.lastname = "Bragina"
+            newUser.isActive = false
             try req.content.encode(newUser)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
