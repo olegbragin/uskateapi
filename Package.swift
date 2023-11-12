@@ -27,7 +27,10 @@ let package = Package(
                 .unsafeFlags(["-cross-module-optimization"], .when(configuration: .release))
             ]
         ),
-        .executableTarget(name: "Run", dependencies: [.target(name: "USkateApi")]),
+        .executableTarget(
+            name: "Run", 
+            dependencies: [.target(name: "USkateApi")]
+        ),
         .testTarget(name: "AppTests", dependencies: [
             .target(name: "USkateApi"),
             .product(name: "XCTVapor", package: "vapor"),

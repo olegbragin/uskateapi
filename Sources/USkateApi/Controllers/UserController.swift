@@ -20,7 +20,12 @@ struct UserController: RouteCollection {
     }
 
     func create(req: Request) async throws -> User {
-        let user = try req.content.decode(User.self)
+        let userDTO = try req.content.decode(User.self)
+        let user = User()
+        user.firstname = userDTO.firstname
+        user.lastname = userDTO.lastname
+        user.isActive = userDTO.isActive
+        
         try await user.save(on: req.db)
         return user
     }
