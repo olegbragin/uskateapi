@@ -28,7 +28,7 @@ let package = Package(
             ]
         ),
         .executableTarget(
-            name: "Run", 
+            name: "App", 
             dependencies: [.target(name: "USkateApi")]
         ),
         .testTarget(name: "AppTests", dependencies: [

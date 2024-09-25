@@ -2,17 +2,6 @@
 import XCTVapor
 
 final class AppTests: XCTestCase {
-    func testHelloWorld() throws {
-        let app = Application(.testing)
-        defer { app.shutdown() }
-        try configure(app)
-
-        try app.test(.GET, "hello", afterResponse: { res in
-            XCTAssertEqual(res.status, .ok)
-            XCTAssertEqual(res.body.string, "Hello, world!")
-        })
-    }
-
     func testUsers() throws {
         let app = Application(.testing)
         defer { app.shutdown() }
@@ -109,6 +98,16 @@ final class AppTests: XCTestCase {
             let user = try res.content.decode(User.self)
             XCTAssertEqual(user.isActive, true)
             XCTAssertEqual(user.firstname, "Oleg")
+        })
+    }
+
+    func testCityRoutes() throws {
+        let app = Application(.testing)
+        defer { app.shutdown() }
+        try configure(app)
+
+        try app.test(.GET, "api/cityroutes", afterResponse: { res in
+            XCTAssertEqual(res.status, .ok)
         })
     }
 }

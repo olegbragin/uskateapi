@@ -25,6 +25,7 @@ public func configure(_ app: Application) throws {
     ), as: .psql)
 
     app.migrations.add(CreateUser())
+    app.migrations.add(CreateCityRoute())
 
     let corsConfiguration = CORSMiddleware.Configuration(
         allowedOrigin: .all,
@@ -35,6 +36,8 @@ public func configure(_ app: Application) throws {
     let cors = CORSMiddleware(configuration: corsConfiguration)
     // cors middleware should come before default error middleware using `at: .beginning`
     app.middleware.use(cors, at: .beginning)
+
+    try app.autoMigrate().wait()
 
     // register routes
     try routes(app)
