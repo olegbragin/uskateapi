@@ -19,6 +19,24 @@
       ],
       "cwd": "${workspaceFolder:USkateApi}",
       "preLaunchTask": "swift: Build Release Run"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:USkateApi}",
+      "name": "Debug App",
+      "program": "${workspaceFolder:USkateApi}/.build/debug/App",
+      "preLaunchTask": "swift: Build Debug App"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:USkateApi}",
+      "name": "Release App",
+      "program": "${workspaceFolder:USkateApi}/.build/release/App",
+      "preLaunchTask": "swift: Build Release App"
     }
   ]
 }
