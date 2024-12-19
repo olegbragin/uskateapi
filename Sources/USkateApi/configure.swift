@@ -16,16 +16,23 @@ public func configure(_ app: Application) throws {
             try configureSecurity(app)
     }
 
-    app.databases.use(.postgres(
-        hostname: Environment.get("DATABASE_HOST") ?? "localhost",
-        port: Environment.get("DATABASE_PORT").flatMap(Int.init(_:)) ?? PostgresConfiguration.ianaPortNumber,
-        username: Environment.get("DATABASE_USERNAME") ?? "vapor_username",
-        password: Environment.get("DATABASE_PASSWORD") ?? "vapor_password",
-        database: Environment.get("DATABASE_NAME") ?? "vapor_database"
-    ), as: .psql)
+    app.databases.use(
+        .postgres(
+            configuration: SQLPostgresConfiguration(
+                hostname: Environment.get("DATABASE_HOST") ?? "localhost",
+                port: Environment.get("DATABASE_PORT").flatMap(Int.init(_:)) ?? SQLPostgresConfiguration.ianaPortNumber,
+                username: Environment.get("DATABASE_USERNAME") ?? "vapor_username",
+                password: Environment.get("DATABASE_PASSWORD") ?? "vapor_password",
+                database: Environment.get("DATABASE_NAME") ?? "vapor_database",
+                tls: .disable
+            )
+        ), as: .psql
+    )
 
     app.migrations.add(CreateUser())
     app.migrations.add(CreateCityRoute())
+    app.migrations.add(CreateChargeStation())
+    app.migrations.add(CreateChargeHistoryItem())
 
     let corsConfiguration = CORSMiddleware.Configuration(
         allowedOrigin: .all,
