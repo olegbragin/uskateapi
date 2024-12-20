@@ -19,14 +19,19 @@ final class ChargeStationTests: XCTestCase {
 
         try app.test(.POST, "api/chargestations", beforeRequest: { req in
             let newChargeStation = ChargeStation()
-            newChargeStation.title = "Mexican SPb"
-            newChargeStation.details = "Feel Mexico"
-            newChargeStation.path = "http://yandex.ru"
+            newChargeStation.latitude = 56.3
+            newChargeStation.longitude = 24.4
+            newChargeStation.title = "111222"
+            newChargeStation.subtitle = "aergaergaergae"
+            newChargeStation.imageSrc = "https://yandex.ru/favico"
+            newChargeStation.chargerType = "super"
+            newChargeStation.rating = 4
+            newChargeStation.isFavorite = true
             try req.content.encode(newChargeStation)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
             let chargeStation = try res.content.decode(ChargeStation.self)
-            XCTAssertEqual(chargeStation.title, "Mexican SPb")
+            XCTAssertEqual(chargeStation.title, "111222")
         })
     }
 
@@ -39,9 +44,14 @@ final class ChargeStationTests: XCTestCase {
 
         try app.test(.POST, "api/chargestations", beforeRequest: { req in
             let newChargeStation = ChargeStation()
-            newChargeStation.title = "Mexican SPb"
-            newChargeStation.details = "Feel Mexico"
-            newChargeStation.path = "http://yandex.ru"
+            newChargeStation.latitude = 56.3
+            newChargeStation.longitude = 24.4
+            newChargeStation.title = "111222"
+            newChargeStation.subtitle = "aergaergaergae"
+            newChargeStation.imageSrc = "https://yandex.ru/favico"
+            newChargeStation.chargerType = "super"
+            newChargeStation.rating = 4
+            newChargeStation.isFavorite = true
             try req.content.encode(newChargeStation)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
@@ -69,9 +79,14 @@ final class ChargeStationTests: XCTestCase {
 
         try app.test(.POST, "api/chargestations", beforeRequest: { req in
             let newChargeStation = ChargeStation()
-            newChargeStation.title = "Mexican SPb"
-            newChargeStation.details = "Feel Mexico"
-            newChargeStation.path = "http://yandex.ru"
+            newChargeStation.latitude = 56.3
+            newChargeStation.longitude = 24.4
+            newChargeStation.title = "111222"
+            newChargeStation.subtitle = "aergaergaergae"
+            newChargeStation.imageSrc = "https://yandex.ru/favico"
+            newChargeStation.chargerType = "super"
+            newChargeStation.rating = 4
+            newChargeStation.isFavorite = true
             try req.content.encode(newChargeStation)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
@@ -88,15 +103,20 @@ final class ChargeStationTests: XCTestCase {
         try app.test(.PATCH, "api/chargestations/\(chargeStationID)", beforeRequest: { req in
             let updatedChargeStation = ChargeStation()
             updatedChargeStation.id = chargeStationID
-            updatedChargeStation.title = "Spanish SPb"
-            updatedChargeStation.details = "Feel Spain"
-            updatedChargeStation.path = "http://vk.com"
+            updatedChargeStation.latitude = 56.3
+            updatedChargeStation.longitude = 24.4
+            updatedChargeStation.title = "2223334555"
+            updatedChargeStation.subtitle = "aergaergaergae111111"
+            updatedChargeStation.imageSrc = "https://vk.com/favico"
+            updatedChargeStation.chargerType = "super3333"
+            updatedChargeStation.rating = 1
+            updatedChargeStation.isFavorite = false
             try req.content.encode(updatedChargeStation)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
             
             let chargeStation = try res.content.decode(ChargeStation.self)
-            XCTAssertEqual(chargeStation.title, "Spanish SPb")
+            XCTAssertEqual(chargeStation.title, "2223334555")
         })
     }
 }

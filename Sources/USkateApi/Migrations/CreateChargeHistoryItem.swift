@@ -4,9 +4,12 @@ struct CreateChargeHistoryItem: AsyncMigration {
     func prepare(on database: Database) async throws {
         try await database.schema("chargehistoryitem")
             .field("id", .int, .identifier(auto: true))
-            .field("title", .string, .required)
-            .field("details", .string, .required)
-            .field("path", .string)
+            .field("date", .datetime, .required)
+            .field("energyDelivered", .int, .required)
+            .field("duration", .int, .required)
+            .field("chargingSpeed", .int, .required)
+            .field("totalCost", .double, .required)
+            .field("chargeStationId", .int)
             .create()
     }
 

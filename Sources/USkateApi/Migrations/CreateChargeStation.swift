@@ -4,9 +4,14 @@ struct CreateChargeStation: AsyncMigration {
     func prepare(on database: Database) async throws {
         try await database.schema("chargestation")
             .field("id", .int, .identifier(auto: true))
-            .field("title", .string, .required)
-            .field("details", .string, .required)
-            .field("path", .string)
+            .field("latitude", .double, .required)
+            .field("longitude", .double, .required)
+            .field("title", .string)
+            .field("subtitle", .string)
+            .field("imageSrc", .string)
+            .field("chargerType", .string)
+            .field("rating", .int)
+            .field("isFavorite", .bool)
             .create()
     }
 

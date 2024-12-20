@@ -19,14 +19,17 @@ final class ChargeHistoryItemTests: XCTestCase {
 
         try app.test(.POST, "api/chargehistory", beforeRequest: { req in
             let newChargeHistoryItem = ChargeHistoryItem()
-            newChargeHistoryItem.title = "Mexican SPb"
-            newChargeHistoryItem.details = "Feel Mexico"
-            newChargeHistoryItem.path = "http://yandex.ru"
+            newChargeHistoryItem.date = Date()
+            newChargeHistoryItem.energyDelivered = 1000
+            newChargeHistoryItem.duration = 34
+            newChargeHistoryItem.chargingSpeed = 34
+            newChargeHistoryItem.totalCost = 45644.7
+            newChargeHistoryItem.chargeStationId = 1
             try req.content.encode(newChargeHistoryItem)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
             let chargeHistoryItem = try res.content.decode(ChargeHistoryItem.self)
-            XCTAssertEqual(chargeHistoryItem.title, "Mexican SPb")
+            XCTAssertEqual(chargeHistoryItem.energyDelivered, 1000)
         })
     }
 
@@ -39,9 +42,12 @@ final class ChargeHistoryItemTests: XCTestCase {
 
         try app.test(.POST, "api/chargehistory", beforeRequest: { req in
             let newChargeHistoryItem = ChargeHistoryItem()
-            newChargeHistoryItem.title = "Mexican SPb"
-            newChargeHistoryItem.details = "Feel Mexico"
-            newChargeHistoryItem.path = "http://yandex.ru"
+            newChargeHistoryItem.date = Date()
+            newChargeHistoryItem.energyDelivered = 1000
+            newChargeHistoryItem.duration = 34
+            newChargeHistoryItem.chargingSpeed = 34
+            newChargeHistoryItem.totalCost = 45644.7
+            newChargeHistoryItem.chargeStationId = 1
             try req.content.encode(newChargeHistoryItem)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
@@ -69,9 +75,12 @@ final class ChargeHistoryItemTests: XCTestCase {
 
         try app.test(.POST, "api/chargehistory", beforeRequest: { req in
             let newChargeHistoryItem = ChargeHistoryItem()
-            newChargeHistoryItem.title = "Mexican SPb"
-            newChargeHistoryItem.details = "Feel Mexico"
-            newChargeHistoryItem.path = "http://yandex.ru"
+            newChargeHistoryItem.date = Date()
+            newChargeHistoryItem.energyDelivered = 1000
+            newChargeHistoryItem.duration = 34
+            newChargeHistoryItem.chargingSpeed = 34
+            newChargeHistoryItem.totalCost = 45644.7
+            newChargeHistoryItem.chargeStationId = 1
             try req.content.encode(newChargeHistoryItem)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
@@ -88,15 +97,18 @@ final class ChargeHistoryItemTests: XCTestCase {
         try app.test(.PATCH, "api/chargehistory/\(chargeHistoryItemID)", beforeRequest: { req in
             let updatedChargeHistoryItem = ChargeHistoryItem()
             updatedChargeHistoryItem.id = chargeHistoryItemID
-            updatedChargeHistoryItem.title = "Spanish SPb"
-            updatedChargeHistoryItem.details = "Feel Spain"
-            updatedChargeHistoryItem.path = "http://vk.com"
+            updatedChargeHistoryItem.date = Date()
+            updatedChargeHistoryItem.energyDelivered = 1000
+            updatedChargeHistoryItem.duration = 34
+            updatedChargeHistoryItem.chargingSpeed = 34
+            updatedChargeHistoryItem.totalCost = 45644.7
+            updatedChargeHistoryItem.chargeStationId = 1
             try req.content.encode(updatedChargeHistoryItem)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
             
             let chargeHistoryItem = try res.content.decode(ChargeHistoryItem.self)
-            XCTAssertEqual(chargeHistoryItem.title, "Spanish SPb")
+            XCTAssertEqual(chargeHistoryItem.energyDelivered, 1000)
         })
     }
 }

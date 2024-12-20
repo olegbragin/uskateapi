@@ -7,21 +7,41 @@ final class ChargeHistoryItem: Model, Content {
     @ID(custom: "id")
     var id: Int?
 
-    @Field(key: "title")
-    var title: String
+    @Field(key: "date")
+    var date: Date
 
-    @Field(key: "details")
-    var details: String
+    @Field(key: "energyDelivered")
+    var energyDelivered: Int
 
-    @Field(key: "path")
-    var path: String
+    @Field(key: "duration")
+    var duration: Int
+
+    @Field(key: "chargingSpeed")
+    var chargingSpeed: Int
+
+    @Field(key: "totalCost")
+    var totalCost: Decimal
+
+    @Field(key: "chargeStationId")
+    var chargeStationId: Int?
 
     init() { }
 
-    init(id: Int? = nil, title: String, details: String, path: String) {
+    init(
+        id: Int? = nil, 
+        date: Date, 
+        energyDelivered: Int,
+        duration: Int,
+        chargingSpeed: Int,
+        totalCost: Decimal,
+        chargeStationId: Int?
+    ) {
         self.id = id
-        self.title = title
-        self.details = details
-        self.path = path
+        self.date = date
+        self.energyDelivered = energyDelivered
+        self.duration = duration
+        self.chargingSpeed = chargingSpeed
+        self.totalCost = totalCost
+        self.chargeStationId = chargeStationId
     }
 }

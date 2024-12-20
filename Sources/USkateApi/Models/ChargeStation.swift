@@ -7,21 +7,51 @@ final class ChargeStation: Model, Content {
     @ID(custom: "id")
     var id: Int?
 
+    @Field(key: "latitude")
+    var latitude: Double
+
+    @Field(key: "longitude")
+    var longitude: Double
+
     @Field(key: "title")
-    var title: String
+    var title: String?
 
-    @Field(key: "details")
-    var details: String
+    @Field(key: "subtitle")
+    var subtitle: String?
 
-    @Field(key: "path")
-    var path: String
+    @Field(key: "imageSrc")
+    var imageSrc: String?
+
+    @Field(key: "chargerType")
+    var chargerType: String?
+
+    @ID(custom: "rating")
+    var rating: Int?
+
+    @Field(key: "isFavorite")
+    var isFavorite: Bool?
 
     init() { }
 
-    init(id: Int? = nil, title: String, details: String, path: String) {
+    init(
+        id: Int,
+        latitude: Double,
+        longitude: Double,
+        title: String? = nil,
+        subtitle: String? = nil,
+        imageSrc: String? = nil,
+        chargerType: String? = nil,
+        rating: Int? = nil,
+        isFavorite: Bool? = nil
+    ) {
         self.id = id
+        self.latitude = latitude
+        self.longitude = longitude
         self.title = title
-        self.details = details
-        self.path = path
+        self.subtitle = subtitle
+        self.imageSrc = imageSrc
+        self.chargerType = chargerType
+        self.rating = rating
+        self.isFavorite = isFavorite
     }
 }

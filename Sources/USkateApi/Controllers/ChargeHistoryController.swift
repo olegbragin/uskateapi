@@ -25,9 +25,12 @@ struct ChargeHistoryController: RouteCollection {
     func create(req: Request) async throws -> ChargeHistoryItem {
         let chargeHistoryItemDTO = try req.content.decode(ChargeHistoryItem.self)
         let chargeHistoryItem = ChargeHistoryItem()
-        chargeHistoryItem.title = chargeHistoryItemDTO.title
-        chargeHistoryItem.details = chargeHistoryItemDTO.details
-        chargeHistoryItem.path = chargeHistoryItemDTO.path
+        chargeHistoryItem.date = chargeHistoryItemDTO.date
+        chargeHistoryItem.energyDelivered = chargeHistoryItemDTO.energyDelivered
+        chargeHistoryItem.duration = chargeHistoryItemDTO.duration
+        chargeHistoryItem.chargingSpeed = chargeHistoryItemDTO.chargingSpeed
+        chargeHistoryItem.totalCost = chargeHistoryItemDTO.totalCost
+        chargeHistoryItem.chargeStationId = chargeHistoryItemDTO.chargeStationId
         
         try await chargeHistoryItem.save(on: req.db)
         return chargeHistoryItem
@@ -39,9 +42,12 @@ struct ChargeHistoryController: RouteCollection {
         }
 
         let chargeHistoryItemDTO = try req.content.decode(ChargeHistoryItem.self)
-        chargeHistoryItem.title = chargeHistoryItemDTO.title
-        chargeHistoryItem.details = chargeHistoryItemDTO.details
-        chargeHistoryItem.path = chargeHistoryItemDTO.path
+        chargeHistoryItem.date = chargeHistoryItemDTO.date
+        chargeHistoryItem.energyDelivered = chargeHistoryItemDTO.energyDelivered
+        chargeHistoryItem.duration = chargeHistoryItemDTO.duration
+        chargeHistoryItem.chargingSpeed = chargeHistoryItemDTO.chargingSpeed
+        chargeHistoryItem.totalCost = chargeHistoryItemDTO.totalCost
+        chargeHistoryItem.chargeStationId = chargeHistoryItemDTO.chargeStationId
         
         try await chargeHistoryItem.update(on: req.db)
         return chargeHistoryItem

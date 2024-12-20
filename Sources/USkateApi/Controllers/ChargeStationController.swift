@@ -23,9 +23,14 @@ struct ChargeStationController: RouteCollection {
     func create(req: Request) async throws -> ChargeStation {
         let chargeStationDTO = try req.content.decode(ChargeStation.self)
         let chargeStation = ChargeStation()
+        chargeStation.latitude = chargeStationDTO.latitude
+        chargeStation.longitude = chargeStationDTO.longitude
         chargeStation.title = chargeStationDTO.title
-        chargeStation.details = chargeStationDTO.details
-        chargeStation.path = chargeStationDTO.path
+        chargeStation.subtitle = chargeStationDTO.subtitle
+        chargeStation.imageSrc = chargeStationDTO.imageSrc
+        chargeStation.chargerType = chargeStationDTO.chargerType
+        chargeStation.rating = chargeStationDTO.rating
+        chargeStation.isFavorite = chargeStationDTO.isFavorite
         
         try await chargeStation.save(on: req.db)
         return chargeStation
@@ -37,9 +42,14 @@ struct ChargeStationController: RouteCollection {
         }
 
         let chargeStationDTO = try req.content.decode(ChargeStation.self)
+        chargeStation.latitude = chargeStationDTO.latitude
+        chargeStation.longitude = chargeStationDTO.longitude
         chargeStation.title = chargeStationDTO.title
-        chargeStation.details = chargeStationDTO.details
-        chargeStation.path = chargeStationDTO.path
+        chargeStation.subtitle = chargeStationDTO.subtitle
+        chargeStation.imageSrc = chargeStationDTO.imageSrc
+        chargeStation.chargerType = chargeStationDTO.chargerType
+        chargeStation.rating = chargeStationDTO.rating
+        chargeStation.isFavorite = chargeStationDTO.isFavorite
         
         try await chargeStation.update(on: req.db)
         return chargeStation
