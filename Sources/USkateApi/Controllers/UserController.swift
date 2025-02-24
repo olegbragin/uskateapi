@@ -1,11 +1,21 @@
 import Fluent
 import Vapor
+import VaporToOpenAPI
 
 struct UserController: RouteCollection {
     func boot(routes: RoutesBuilder) throws {
         let api = routes.grouped("api")
         api.group("users") { users in
-            users.get(use: index)
+            users
+                .get(use: index)
+                .openAPI(
+					summary: "Get all users list",
+					description: "This can only be done by the logged in user.",
+					body: .type(User.self),
+					contentType: .application(.json),
+					response: .type(User.self),
+					responseContentType: .application(.json)
+				)
             users.post(use: create)
 
             users.group(":id") { user in
