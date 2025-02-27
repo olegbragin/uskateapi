@@ -8,7 +8,7 @@ struct CreateChargeHistoryItem: AsyncMigration {
             .field("energyDelivered", .int, .required)
             .field("duration", .int, .required)
             .field("chargingSpeed", .int, .required)
-            .field("totalCost", .double, .required)
+            .field("totalCost", .sql(unsafeRaw: "NUMERIC(7,2)"), .required)
             .field("chargeStationId", .int)
             .create()
     }

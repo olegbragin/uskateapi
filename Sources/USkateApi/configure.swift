@@ -14,7 +14,15 @@ public func configure(_ app: Application) throws {
 
     let encoder = JSONEncoder()
 	encoder.outputFormatting = .sortedKeys
+    encoder.dateEncodingStrategy = .iso8601
 	ContentConfiguration.global.use(encoder: encoder, for: .json)
+
+    // create a new JSON encoder that uses ISO8601 dates
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .iso8601
+
+    // override the global encoder used for the `.json` media type
+    ContentConfiguration.global.use(decoder: decoder, for: .json)
 
     // Enable TLS.
     switch app.environment {

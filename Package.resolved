@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swift-server/async-http-client.git",
       "state" : {
-        "revision" : "60fa3dcfc52d09ed0411e9c4bc99928bf63656bd",
-        "version" : "1.24.2"
+        "revision" : "333f51104b75d1a5b94cb3b99e4c58a3b442c9f7",
+        "version" : "1.25.2"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/fluent-kit.git",
       "state" : {
-        "revision" : "153c495198ad29508e9c89baf87cbfda798c5338",
-        "version" : "1.50.1"
+        "revision" : "4f886ebdfc7eb497bd58e622c3eacea6cad893cd",
+        "version" : "1.50.3"
       }
     },
     {
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/postgres-nio.git",
       "state" : {
-        "revision" : "fd0e415a705c490499f983639b04f491a2ed9d99",
-        "version" : "1.23.0"
+        "revision" : "5d817be55cae8b00003b7458944954558302d006",
+        "version" : "1.25.0"
       }
     },
     {
@@ -104,8 +104,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-algorithms.git",
       "state" : {
-        "revision" : "f6919dfc309e7f1b56224378b11e28bab5bccc42",
-        "version" : "1.2.0"
+        "revision" : "87e50f483c54e6efd60e885f7f5aa946cee68023",
+        "version" : "1.2.1"
       }
     },
     {
@@ -149,8 +149,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-crypto.git",
       "state" : {
-        "revision" : "ff0f781cf7c6a22d52957e50b104f5768b50c779",
-        "version" : "3.10.0"
+        "revision" : "45305d32cfb830faebcaa9a7aea66ad342637518",
+        "version" : "3.11.1"
       }
     },
     {
@@ -159,6 +159,15 @@
       "location" : "https://github.com/apple/swift-distributed-tracing.git",
       "state" : {
         "revision" : "a64a0abc2530f767af15dd88dda7f64d5f1ff9de",
+        "version" : "1.2.0"
+      }
+    },
+    {
+      "identity" : "swift-http-structured-headers",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-http-structured-headers.git",
+      "state" : {
+        "revision" : "d01361d32e14ae9b70ea5bd308a3794a198a2706",
         "version" : "1.2.0"
       }
     },
@@ -194,8 +203,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio.git",
       "state" : {
-        "revision" : "dff45738d84a53dbc8ee899c306b3a7227f54f89",
-        "version" : "2.80.0"
+        "revision" : "c51907a839e63ebf0ba2076bba73dd96436bd1b9",
+        "version" : "2.81.0"
       }
     },
     {
@@ -203,8 +212,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio-extras.git",
       "state" : {
-        "revision" : "2e9746cfc57554f70b650b021b6ae4738abef3e6",
-        "version" : "1.24.1"
+        "revision" : "00f3f72d2f9942d0e2dc96057ab50a37ced150d4",
+        "version" : "1.25.0"
       }
     },
     {
@@ -221,8 +230,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio-ssl.git",
       "state" : {
-        "revision" : "c7e95421334b1068490b5d41314a50e70bab23d1",
-        "version" : "2.29.0"
+        "revision" : "0cc3528ff48129d64ab9cab0b1cd621634edfc6b",
+        "version" : "2.29.3"
       }
     },
     {
@@ -248,8 +257,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-service-context.git",
       "state" : {
-        "revision" : "0c62c5b4601d6c125050b5c3a97f20cce881d32b",
-        "version" : "1.1.0"
+        "revision" : "8946c930cae601452149e45d31d8ddfac973c3c7",
+        "version" : "1.2.0"
       }
     },
     {
@@ -275,8 +284,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-system.git",
       "state" : {
-        "revision" : "c8a44d836fe7913603e246acab7c528c2e780168",
-        "version" : "1.4.0"
+        "revision" : "a34201439c74b53f0fd71ef11741af7e7caf01e1",
+        "version" : "1.4.2"
       }
     },
     {
@@ -293,8 +302,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/vapor.git",
       "state" : {
-        "revision" : "8589cb562feab069f2563bdcdeb8f9608a07a2c7",
-        "version" : "4.112.0"
+        "revision" : "a425e32f9b9d19c0ecab952cb4484c1c15e2536f",
+        "version" : "4.113.2"
       }
     },
     {
