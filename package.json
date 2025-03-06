@@ -1,0 +1,6 @@
+[program:uskateapi]
+command=/home/vapor/uskateapi/.build/release/App serve --env production
+directory=/home/vapor/uskateapi/
+user=vapor
+stdout_logfile=/var/log/supervisor/%(program_name)s-stdout.log
+stderr_logfile=/var/log/supervisor/%(program_name)s-stderr.log
