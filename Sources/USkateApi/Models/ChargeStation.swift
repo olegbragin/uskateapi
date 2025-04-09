@@ -31,6 +31,9 @@ final class ChargeStation: Model, Content {
     @Field(key: "isFavorite")
     var isFavorite: Bool?
 
+    @Children(for: \.$chargeStation)
+    var chargers: [Charger]
+
     init() { }
 
     init(

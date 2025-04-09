@@ -49,6 +49,7 @@ public func configure(_ app: Application) throws {
     app.migrations.add(CreateCityRoute())
     app.migrations.add(CreateChargeStation())
     app.migrations.add(CreateChargeHistoryItem())
+    app.migrations.add(CreateCharger())
 
     let corsConfiguration = CORSMiddleware.Configuration(
         allowedOrigin: .all,
