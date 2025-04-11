@@ -8,6 +8,7 @@ struct CreateCharger: AsyncMigration {
             .field("state", .int, .required)
             .field("price", .string, .required)
             .field("chargestation_id", .int, .foreignKey("chargestation", .key(.id), onDelete: .noAction, onUpdate: .setNull))
+            .unique(on: "chargestation_id")
             .create()
     }
 

@@ -18,19 +18,25 @@ final class ChargeStationTests: XCTestCase {
         try configure(app)
 
         try app.test(.POST, "api/chargestations", beforeRequest: { req in
-            let newChargeStation = ChargeStation()
-            newChargeStation.latitude = 56.3
-            newChargeStation.longitude = 24.4
-            newChargeStation.title = "111222"
-            newChargeStation.subtitle = "aergaergaergae"
-            newChargeStation.imageSrc = "https://yandex.ru/favico"
-            newChargeStation.chargerType = "super"
-            newChargeStation.rating = 4
-            newChargeStation.isFavorite = true
+            let newChargeStation = ChargeStationDTO(
+                latitude: 56.3, 
+                longitude: 24.4, 
+                title: "111222", 
+                subtitle: "aergaergaergae", 
+                imageSrc: "https://yandex.ru/favico", 
+                chargerType: "super", 
+                rating: 4, 
+                isFavorite: true, 
+                chargers: [ChargerDTO(
+                    plug: 1, 
+                    state: 0, 
+                    price: "100"
+                )]
+            )
             try req.content.encode(newChargeStation)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
-            let chargeStation = try res.content.decode(ChargeStation.self)
+            let chargeStation = try res.content.decode(ChargeStationDTO.self)
             XCTAssertEqual(chargeStation.title, "111222")
         })
     }
@@ -43,19 +49,25 @@ final class ChargeStationTests: XCTestCase {
         var chargeStationID: Int?
 
         try app.test(.POST, "api/chargestations", beforeRequest: { req in
-            let newChargeStation = ChargeStation()
-            newChargeStation.latitude = 56.3
-            newChargeStation.longitude = 24.4
-            newChargeStation.title = "111222"
-            newChargeStation.subtitle = "aergaergaergae"
-            newChargeStation.imageSrc = "https://yandex.ru/favico"
-            newChargeStation.chargerType = "super"
-            newChargeStation.rating = 4
-            newChargeStation.isFavorite = true
+            let newChargeStation = ChargeStationDTO(
+                latitude: 56.3, 
+                longitude: 24.4, 
+                title: "111222", 
+                subtitle: "aergaergaergae", 
+                imageSrc: "https://yandex.ru/favico", 
+                chargerType: "super", 
+                rating: 4, 
+                isFavorite: true, 
+                chargers: [ChargerDTO(
+                    plug: 1, 
+                    state: 0, 
+                    price: "100"
+                )]
+            )
             try req.content.encode(newChargeStation)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
-            let newChargeStation = try res.content.decode(ChargeStation.self)
+            let newChargeStation = try res.content.decode(ChargeStationDTO.self)
             chargeStationID = newChargeStation.id
         })
 
@@ -78,15 +90,16 @@ final class ChargeStationTests: XCTestCase {
         var chargeStationID: Int?
 
         try app.test(.POST, "api/chargestations", beforeRequest: { req in
-            let newChargeStation = ChargeStation()
-            newChargeStation.latitude = 56.3
-            newChargeStation.longitude = 24.4
-            newChargeStation.title = "111222"
-            newChargeStation.subtitle = "aergaergaergae"
-            newChargeStation.imageSrc = "https://yandex.ru/favico"
-            newChargeStation.chargerType = "super"
-            newChargeStation.rating = 4
-            newChargeStation.isFavorite = true
+            let newChargeStation = ChargeStationDTO(
+                latitude: 56.3, 
+                longitude: 24.4, 
+                title: "111222", 
+                subtitle: "aergaergaergae", 
+                imageSrc: "https://yandex.ru/favico", 
+                chargerType: "super", 
+                rating: 4, 
+                isFavorite: true
+            )
             try req.content.encode(newChargeStation)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
@@ -101,17 +114,17 @@ final class ChargeStationTests: XCTestCase {
         }
 
         try app.test(.PATCH, "api/chargestations/\(chargeStationID)", beforeRequest: { req in
-            let updatedChargeStation = ChargeStation()
-            updatedChargeStation.id = chargeStationID
-            updatedChargeStation.latitude = 56.3
-            updatedChargeStation.longitude = 24.4
-            updatedChargeStation.title = "2223334555"
-            updatedChargeStation.subtitle = "aergaergaergae111111"
-            updatedChargeStation.imageSrc = "https://vk.com/favico"
-            updatedChargeStation.chargerType = "super3333"
-            updatedChargeStation.rating = 1
-            updatedChargeStation.isFavorite = false
-            try req.content.encode(updatedChargeStation)
+            let updatedChargeStationDTO = ChargeStationDTO(
+                latitude: 56.3, 
+                longitude: 24.4, 
+                title: "2223334555", 
+                subtitle: "aergaergaergae111111", 
+                imageSrc: "https://vk.com/favico", 
+                chargerType: "super3333", 
+                rating: 1, 
+                isFavorite: false
+            )
+            try req.content.encode(updatedChargeStationDTO)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
             

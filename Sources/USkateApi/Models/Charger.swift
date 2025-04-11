@@ -1,7 +1,7 @@
 import Fluent
 import Vapor
 
-final class Charger: Model, Content {
+final class Charger: Model {
     static let schema = "charger"
     
     @ID(custom: "id")
@@ -21,10 +21,11 @@ final class Charger: Model, Content {
 
     init() { }
 
-    init(id: Int? = nil, plug: Int, state: Int, price: String) {
+    init(id: Int? = nil, plug: Int, state: Int, price: String, chargeStationID: ChargeStation.IDValue? = nil) {
         self.id = id
         self.plug = plug
         self.state = state
         self.price = price
+        self.$chargeStation.id = chargeStationID
     }
 }

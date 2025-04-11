@@ -1,7 +1,7 @@
 import Fluent
 import Vapor
 
-final class ChargeStation: Model, Content {
+final class ChargeStation: Model {
     static let schema = "chargestation"
     
     @ID(custom: "id")
@@ -37,7 +37,7 @@ final class ChargeStation: Model, Content {
     init() { }
 
     init(
-        id: Int,
+        id: Int? = nil,
         latitude: Double,
         longitude: Double,
         title: String? = nil,
