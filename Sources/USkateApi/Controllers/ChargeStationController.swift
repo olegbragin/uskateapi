@@ -17,7 +17,7 @@ struct ChargeStationController: RouteCollection {
     }
 
     func index(req: Request) async throws -> [ChargeStationDTO] {
-        let chargeStations = try await ChargeStation.query(on: req.db).all()
+        let chargeStations = try await ChargeStation.query(on: req.db).sort(\.$id, .descending).all()
         var result = [ChargeStationDTO]()
         for chargeStation in chargeStations {
             let chargers = try await chargeStation.$chargers.get(on: req.db).map { charger in

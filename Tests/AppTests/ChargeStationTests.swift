@@ -24,7 +24,9 @@ final class ChargeStationTests: XCTestCase {
                 title: "111222", 
                 subtitle: "aergaergaergae", 
                 imageSrc: "https://yandex.ru/favico", 
-                chargerType: "super", 
+                phone: "89211234567",
+                workTime: "45",
+                parking: "raergaergaer", 
                 rating: 4, 
                 isFavorite: true, 
                 chargers: [ChargerDTO(
@@ -55,7 +57,9 @@ final class ChargeStationTests: XCTestCase {
                 title: "111222", 
                 subtitle: "aergaergaergae", 
                 imageSrc: "https://yandex.ru/favico", 
-                chargerType: "super", 
+                phone: "89211234567",
+                workTime: "45",
+                parking: "raergaergaer", 
                 rating: 4, 
                 isFavorite: true, 
                 chargers: [ChargerDTO(
@@ -96,7 +100,9 @@ final class ChargeStationTests: XCTestCase {
                 title: "111222", 
                 subtitle: "aergaergaergae", 
                 imageSrc: "https://yandex.ru/favico", 
-                chargerType: "super", 
+                phone: "89211234567",
+                workTime: "45",
+                parking: "raergaergaer", 
                 rating: 4, 
                 isFavorite: true
             )
@@ -120,7 +126,9 @@ final class ChargeStationTests: XCTestCase {
                 title: "2223334555", 
                 subtitle: "aergaergaergae111111", 
                 imageSrc: "https://vk.com/favico", 
-                chargerType: "super3333", 
+                phone: "89211234567",
+                workTime: "45",
+                parking: "raergaergaer", 
                 rating: 1, 
                 isFavorite: false
             )

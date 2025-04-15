@@ -117,7 +117,9 @@ final class ChargerTests: XCTestCase {
                 title: "111222", 
                 subtitle: "aergaergaergae", 
                 imageSrc: "https://yandex.ru/favico", 
-                chargerType: "super", 
+                phone: "89211234567",
+                workTime: "45",
+                parking: "raergaergaer", 
                 rating: 4, 
                 isFavorite: true, 
                 chargers: [ChargerDTO(
