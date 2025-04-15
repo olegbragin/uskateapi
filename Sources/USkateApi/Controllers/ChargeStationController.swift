@@ -36,9 +36,11 @@ struct ChargeStationController: RouteCollection {
                     title: chargeStation.title, 
                     subtitle: chargeStation.subtitle, 
                     imageSrc: chargeStation.imageSrc, 
-                    chargerType: chargeStation.chargerType, 
+                    phone: chargeStation.phone,
+                    workTime: chargeStation.workTime,
+                    parking: chargeStation.parking,
                     rating: chargeStation.rating, 
-                    isFavorite: chargeStation.isFavorite, 
+                    isFavorite: chargeStation.isFavorite,
                     chargers: chargers
                 )
             )
@@ -54,7 +56,9 @@ struct ChargeStationController: RouteCollection {
         chargeStation.title = chargeStationDTO.title
         chargeStation.subtitle = chargeStationDTO.subtitle
         chargeStation.imageSrc = chargeStationDTO.imageSrc
-        chargeStation.chargerType = chargeStationDTO.chargerType
+        chargeStation.phone = chargeStationDTO.phone
+        chargeStation.workTime = chargeStationDTO.workTime
+        chargeStation.parking = chargeStationDTO.parking
         chargeStation.rating = chargeStationDTO.rating
         chargeStation.isFavorite = chargeStationDTO.isFavorite
         
@@ -74,7 +78,9 @@ struct ChargeStationController: RouteCollection {
         chargeStation.title = chargeStationDTO.title
         chargeStation.subtitle = chargeStationDTO.subtitle
         chargeStation.imageSrc = chargeStationDTO.imageSrc
-        chargeStation.chargerType = chargeStationDTO.chargerType
+        chargeStation.phone = chargeStationDTO.phone
+        chargeStation.workTime = chargeStationDTO.workTime
+        chargeStation.parking = chargeStationDTO.parking
         chargeStation.rating = chargeStationDTO.rating
         chargeStation.isFavorite = chargeStationDTO.isFavorite
 

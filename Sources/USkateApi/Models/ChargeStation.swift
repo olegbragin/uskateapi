@@ -22,14 +22,20 @@ final class ChargeStation: Model {
     @Field(key: "imageSrc")
     var imageSrc: String?
 
-    @Field(key: "chargerType")
-    var chargerType: String?
-
     @ID(custom: "rating")
     var rating: Int?
 
     @Field(key: "isFavorite")
     var isFavorite: Bool?
+
+    @Field(key: "phone")
+    var phone: String?
+
+    @Field(key: "workTime")
+    var workTime: String?
+
+    @Field(key: "parking")
+    var parking: String?
 
     @Children(for: \.$chargeStation)
     var chargers: [Charger]
@@ -43,7 +49,9 @@ final class ChargeStation: Model {
         title: String? = nil,
         subtitle: String? = nil,
         imageSrc: String? = nil,
-        chargerType: String? = nil,
+        phone: String? = nil,
+        workTime: String? = nil,
+        parking: String? = nil,
         rating: Int? = nil,
         isFavorite: Bool? = nil
     ) {
@@ -53,7 +61,9 @@ final class ChargeStation: Model {
         self.title = title
         self.subtitle = subtitle
         self.imageSrc = imageSrc
-        self.chargerType = chargerType
+        self.phone = phone
+        self.workTime = workTime
+        self.parking = parking
         self.rating = rating
         self.isFavorite = isFavorite
     }

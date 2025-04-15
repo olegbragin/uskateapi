@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/fluent-kit.git",
       "state" : {
-        "revision" : "788f4b92c8d96e2bc0b89f6a240fa873d437c105",
-        "version" : "1.51.0"
+        "revision" : "1385c48f98e1e44335b251cc11dc11a0a50ab853",
+        "version" : "1.52.1"
       }
     },
     {
@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/fluent-postgres-driver.git",
       "state" : {
-        "revision" : "fd57101e426d3edf66a32ba63a7d0b8ced4d7499",
-        "version" : "2.10.0"
+        "revision" : "095bc5a17ab3363167f4becb270b6f8eb790481c",
+        "version" : "2.10.1"
       }
     },
     {
@@ -95,8 +95,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/sql-kit.git",
       "state" : {
-        "revision" : "e0b35ff07601465dd9f3af19a1c23083acaae3bd",
-        "version" : "3.32.0"
+        "revision" : "baf0d8684a43f16cd11ebcc67300c8ab5cb5d078",
+        "version" : "3.33.0"
       }
     },
     {

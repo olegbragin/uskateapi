@@ -8,7 +8,9 @@ struct ChargeStationDTO: Content {
     var title: String?
     var subtitle: String?
     var imageSrc: String?
-    var chargerType: String?
+    var phone: String?
+    var workTime: String?
+    var parking: String?
     var rating: Int?
     var isFavorite: Bool?
     var chargers: [ChargerDTO]?

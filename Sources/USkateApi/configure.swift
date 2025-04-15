@@ -50,6 +50,7 @@ public func configure(_ app: Application) throws {
     app.migrations.add(CreateChargeStation())
     app.migrations.add(CreateChargeHistoryItem())
     app.migrations.add(CreateCharger())
+    app.migrations.add(UpdateChargeStation())
 
     let corsConfiguration = CORSMiddleware.Configuration(
         allowedOrigin: .all,
