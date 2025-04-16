@@ -24,7 +24,7 @@ struct ChargerController: RouteCollection {
                 plug: $0.plug, 
                 state: $0.state, 
                 price: $0.price, 
-                chargeStation: $0.$chargeStation.id
+                chargeStationId: $0.$chargeStation.id
             )
         }
     }
@@ -35,7 +35,7 @@ struct ChargerController: RouteCollection {
             plug: chargerDTO.plug, 
             state: chargerDTO.state, 
             price: chargerDTO.price, 
-            chargeStationID: chargerDTO.chargeStation
+            chargeStationID: chargerDTO.chargeStationId
         )        
         try await charger.save(on: req.db)
         chargerDTO.id = charger.id
@@ -51,7 +51,7 @@ struct ChargerController: RouteCollection {
         charger.plug = chargerDTO.plug
         charger.state = chargerDTO.state
         charger.price = chargerDTO.price
-        charger.$chargeStation.id = chargerDTO.chargeStation
+        charger.$chargeStation.id = chargerDTO.chargeStationId
         
         try await charger.update(on: req.db)
         return chargerDTO

@@ -139,7 +139,7 @@ final class ChargerTests: XCTestCase {
             return
         }
 
-        var chargerID: Int?
+        var charger: ChargerDTO?
 
         try app.test(.POST, "api/chargers", beforeRequest: { req in
             let newCharger = ChargerDTO(
@@ -152,14 +152,17 @@ final class ChargerTests: XCTestCase {
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
             let newCharger = try res.content.decode(ChargerDTO.self)
-            chargerID = newCharger.id
+            charger = newCharger
         })
 
-        XCTAssertNotNil(chargerID)
+        XCTAssertNotNil(charger?.id)
 
-        guard let chargerID = chargerID else {
+        guard let chargerID = charger?.id else {
             return
         }
+
+        XCTAssertNotNil(charger?.chargeStation)
+        XCTAssertEqual(charger?.chargeStation, chargeStationID)        
 
         try app.test(.DELETE, "api/chargers/\(chargerID)", afterResponse: { res in
             XCTAssertEqual(res.status, .noContent)

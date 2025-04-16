@@ -6,5 +6,5 @@ struct ChargerDTO: Content {
     var plug: Int
     var state: Int
     var price: String
-    var chargeStation: ChargeStation.IDValue?
+    var chargeStationId: ChargeStation.IDValue?
 }
