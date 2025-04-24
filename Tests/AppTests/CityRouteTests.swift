@@ -18,14 +18,15 @@ final class CityRouteTests: XCTestCase {
         try configure(app)
 
         try app.test(.POST, "api/cityroutes", beforeRequest: { req in
-            let newCityRoute = CityRoute()
-            newCityRoute.title = "Mexican SPb"
-            newCityRoute.details = "Feel Mexico"
-            newCityRoute.path = "http://yandex.ru"
+            let newCityRoute = CityRouteDTO(
+                title: "Mexican SPb", 
+                details: "Feel Mexico", 
+                path: "http://yandex.ru"
+            )
             try req.content.encode(newCityRoute)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
-            let cityRoute = try res.content.decode(CityRoute.self)
+            let cityRoute = try res.content.decode(CityRouteDTO.self)
             XCTAssertEqual(cityRoute.title, "Mexican SPb")
         })
     }
@@ -38,14 +39,15 @@ final class CityRouteTests: XCTestCase {
         var cityRouteID: Int?
 
         try app.test(.POST, "api/cityroutes", beforeRequest: { req in
-            let newCityRoute = CityRoute()
-            newCityRoute.title = "Mexican SPb"
-            newCityRoute.details = "Feel Mexico"
-            newCityRoute.path = "http://yandex.ru"
+            let newCityRoute = CityRouteDTO(
+                title: "Mexican SPb", 
+                details: "Feel Mexico", 
+                path: "http://yandex.ru"
+            )
             try req.content.encode(newCityRoute)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
-            let newCityRoute = try res.content.decode(CityRoute.self)
+            let newCityRoute = try res.content.decode(CityRouteDTO.self)
             cityRouteID = newCityRoute.id
         })
 
@@ -68,14 +70,15 @@ final class CityRouteTests: XCTestCase {
         var cityRouteID: Int?
 
         try app.test(.POST, "api/cityroutes", beforeRequest: { req in
-            let newCityRoute = CityRoute()
-            newCityRoute.title = "Mexican SPb"
-            newCityRoute.details = "Feel Mexico"
-            newCityRoute.path = "http://yandex.ru"
+            let newCityRoute = CityRouteDTO(
+                title: "Mexican SPb", 
+                details: "Feel Mexico", 
+                path: "http://yandex.ru"
+            )
             try req.content.encode(newCityRoute)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
-            let cityRoute = try res.content.decode(CityRoute.self)
+            let cityRoute = try res.content.decode(CityRouteDTO.self)
             cityRouteID = cityRoute.id
         })
 
@@ -86,11 +89,12 @@ final class CityRouteTests: XCTestCase {
         }
 
         try app.test(.PATCH, "api/cityroutes/\(cityRouteID)", beforeRequest: { req in
-            let updatedCityRoute = CityRoute()
-            updatedCityRoute.id = cityRouteID
-            updatedCityRoute.title = "Spanish SPb"
-            updatedCityRoute.details = "Feel Spain"
-            updatedCityRoute.path = "http://vk.com"
+            let updatedCityRoute = CityRouteDTO(
+                id: cityRouteID, 
+                title: "Spanish SPb", 
+                details: "Feel Spain", 
+                path: "http://vk.com"
+            )
             try req.content.encode(updatedCityRoute)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)

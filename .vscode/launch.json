@@ -21,7 +21,7 @@
       "preLaunchTask": "swift: Build Release Run"
     },
     {
-      "type": "lldb",
+      "type": "swift",
       "request": "launch",
       "args": [],
       "cwd": "${workspaceFolder:USkateApi}",
@@ -30,7 +30,7 @@
       "preLaunchTask": "swift: Build Debug App"
     },
     {
-      "type": "lldb",
+      "type": "swift",
       "request": "launch",
       "args": [],
       "cwd": "${workspaceFolder:USkateApi}",

@@ -1,7 +1,7 @@
 import Fluent
 import Vapor
 
-final class CityRoute: Model, Content {
+final class CityRoute: Model {
     static let schema = "cityroute"
     
     @ID(custom: "id")

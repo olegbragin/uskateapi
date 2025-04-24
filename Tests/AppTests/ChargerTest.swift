@@ -146,7 +146,7 @@ final class ChargerTests: XCTestCase {
                 plug: 1, 
                 state: 0, 
                 price: "100", 
-                chargeStation: chargeStationID
+                chargeStationId: chargeStationID
             )
             try req.content.encode(newCharger)
         }, afterResponse: { res in
@@ -161,8 +161,8 @@ final class ChargerTests: XCTestCase {
             return
         }
 
-        XCTAssertNotNil(charger?.chargeStation)
-        XCTAssertEqual(charger?.chargeStation, chargeStationID)        
+        XCTAssertNotNil(charger?.chargeStationId)
+        XCTAssertEqual(charger?.chargeStationId, chargeStationID)
 
         try app.test(.DELETE, "api/chargers/\(chargerID)", afterResponse: { res in
             XCTAssertEqual(res.status, .noContent)

@@ -16,33 +16,41 @@ struct CityRouteController: RouteCollection {
         }
     }
 
-    func index(req: Request) async throws -> [CityRoute] {
-        try await CityRoute.query(on: req.db).all()
+    func index(req: Request) async throws -> [CityRouteDTO] {
+        try await CityRoute.query(on: req.db).all().map {
+            CityRouteDTO(
+                id: $0.id, 
+                title: $0.title, 
+                details: $0.details, 
+                path: $0.path
+            )
+        }
     }
 
-    func create(req: Request) async throws -> CityRoute {
-        let cityRouteDTO = try req.content.decode(CityRoute.self)
-        let cityRoute = CityRoute()
-        cityRoute.title = cityRouteDTO.title
-        cityRoute.details = cityRouteDTO.details
-        cityRoute.path = cityRouteDTO.path
-        
+    func create(req: Request) async throws -> CityRouteDTO {
+        var cityRouteDTO = try req.content.decode(CityRouteDTO.self)
+        let cityRoute = CityRoute(
+            title: cityRouteDTO.title, 
+            details: cityRouteDTO.details, 
+            path: cityRouteDTO.path
+        )        
         try await cityRoute.save(on: req.db)
-        return cityRoute
+        cityRouteDTO.id = cityRoute.id
+        return cityRouteDTO
     }
 
-    func update(req: Request) async throws -> CityRoute {
+    func update(req: Request) async throws -> CityRouteDTO {
         guard let cityRoute = try await CityRoute.find(req.parameters.get("id"), on: req.db) else {
             throw Abort(.notFound)
         }
 
-        let cityRouteDTO = try req.content.decode(CityRoute.self)
+        let cityRouteDTO = try req.content.decode(CityRouteDTO.self)
         cityRoute.title = cityRouteDTO.title
         cityRoute.details = cityRouteDTO.details
         cityRoute.path = cityRouteDTO.path
         
         try await cityRoute.update(on: req.db)
-        return cityRoute
+        return cityRouteDTO
     }
 
     func delete(req: Request) async throws -> HTTPStatus {

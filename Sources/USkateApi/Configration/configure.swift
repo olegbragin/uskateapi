@@ -12,17 +12,8 @@ public func configure(_ app: Application) throws {
 		)
 	)
 
-    let encoder = JSONEncoder()
-	encoder.outputFormatting = .sortedKeys
-    encoder.dateEncodingStrategy = .iso8601
-	ContentConfiguration.global.use(encoder: encoder, for: .json)
-
-    // create a new JSON encoder that uses ISO8601 dates
-    let decoder = JSONDecoder()
-    decoder.dateDecodingStrategy = .iso8601
-
-    // override the global encoder used for the `.json` media type
-    ContentConfiguration.global.use(decoder: decoder, for: .json)
+	ContentConfiguration.global.use(encoder: CoderFactory.defaultJsonEncoder, for: .json)
+    ContentConfiguration.global.use(decoder: CoderFactory.defaultJsonDecoder, for: .json)
 
     // Enable TLS.
     switch app.environment {
@@ -51,6 +42,8 @@ public func configure(_ app: Application) throws {
     app.migrations.add(CreateChargeHistoryItem())
     app.migrations.add(CreateCharger())
     app.migrations.add(UpdateChargeStation())
+    app.migrations.add(UpdateUser())
+    app.migrations.add(UserToken.Migration())
 
     let corsConfiguration = CORSMiddleware.Configuration(
         allowedOrigin: .all,
@@ -62,7 +55,11 @@ public func configure(_ app: Application) throws {
     // cors middleware should come before default error middleware using `at: .beginning`
     app.middleware.use(cors, at: .beginning)
 
-    try app.autoMigrate().wait()
+    app.sessions.configuration.cookieName = "uskate"
+    app.sessions.configuration.cookieFactory = { sessionID in
+        .init(string: sessionID.string, isSecure: true)
+    }
+    app.middleware.use(app.sessions.middleware)
 
     // register routes
     try routes(app)
